@@ -1,0 +1,139 @@
+{
+    "name": "Godfrey Vigilance System",
+    "version": "1.0.0",
+    "description": "A vigilance and strategic intelligence system inspired by Godfrey O'Donnell of Tyrconnell",
+    
+    "knowledge_base": {
+        "type": "file",
+        "path": "godfrey_knowledge.json"
+    },
+    
+    "sensors": {
+        "poll_interval": 5,
+        "default_sensors": {
+            "motion": true,
+            "network": true,
+            "text": true,
+            "camera": true
+        }
+    },
+    
+    "vigilance": {
+        "alert_threshold": 70,
+        "report_interval": 300,
+        "min_confidence": 0.4
+    },
+    
+    "principles": {
+        "vigilance_weight": 1.5,
+        "resilience_weight": 1.3,
+        "foresight_weight": 1.2,
+        "adaptability_weight": 1.1,
+        "integrity_weight": 1.0
+    },
+    
+    "threat_patterns": [
+        {
+            "id": "unauthorized_access",
+            "name": "Unauthorized Access Attempt",
+            "description": "Detects attempts to access restricted resources without authorization",
+            "required_indicators": {
+                "access_attempt": true,
+                "authorized": false
+            },
+            "optional_indicators": {},
+            "threshold": 0.8,
+            "alert_level": "HIGH"
+        },
+        {
+            "id": "suspicious_network",
+            "name": "Suspicious Network Activity",
+            "description": "Detects unusual network traffic patterns that may indicate an attack",
+            "required_indicators": {
+                "suspicious_activity": true
+            },
+            "optional_indicators": {
+                "unknown_ip": null
+            },
+            "threshold": 0.6,
+            "alert_level": "MODERATE"
+        },
+        {
+            "id": "unusual_motion",
+            "name": "Unusual Motion Detection",
+            "description": "Detects motion in areas that should be unoccupied",
+            "required_indicators": {
+                "motion_detected": true
+            },
+            "optional_indicators": {},
+            "threshold": 0.7,
+            "alert_level": "ELEVATED"
+        }
+    ],
+    
+    "action_templates": [
+        {
+            "id": "lockdown_systems",
+            "name": "Lock Down Systems",
+            "description": "Temporarily restrict all access to critical systems",
+            "applicable_threats": ["unauthorized_access", "suspicious_network", "security_escalation"],
+            "base_effectiveness": 0.8,
+            "base_resource_cost": 0.7,
+            "principles_alignment": {
+                "vigilance": 0.9,
+                "resilience": 0.7,
+                "adaptability": -0.3,
+                "foresight": 0.5,
+                "integrity": 0.6
+            }
+        },
+        {
+            "id": "alert_security",
+            "name": "Alert Security Team",
+            "description": "Send immediate alert to security personnel",
+            "applicable_threats": ["unauthorized_access", "unusual_motion", "security_escalation"],
+            "base_effectiveness": 0.7,
+            "base_resource_cost": 0.2,
+            "principles_alignment": {
+                "vigilance": 0.8,
+                "resilience": 0.5,
+                "adaptability": 0.6,
+                "foresight": 0.4,
+                "integrity": 0.9
+            }
+        },
+        {
+            "id": "increase_monitoring",
+            "name": "Increase Monitoring",
+            "description": "Increase the sensitivity and frequency of monitoring systems",
+            "applicable_threats": ["suspicious_network", "negative_sentiment"],
+            "base_effectiveness": 0.6,
+            "base_resource_cost": 0.4,
+            "principles_alignment": {
+                "vigilance": 1.0,
+                "resilience": 0.3,
+                "adaptability": 0.7,
+                "foresight": 0.8,
+                "integrity": 0.5
+            }
+        }
+    ],
+    
+    "agents": {
+        "vigilance": {
+            "enable": true,
+            "alert_threshold": 70
+        },
+        "decision": {
+            "enable": true,
+            "context_timeout": 3600
+        }
+    },
+    
+    "logging": {
+        "level": "INFO",
+        "file": "godfrey.log",
+        "max_size": 1048576,
+        "backup_count": 3
+    }
+}

@@ -1,0 +1,22 @@
+godfrey_system/
+├── __init__.py
+├── __main__.py
+├── core.py
+├── sensors.py
+├── knowledge.py
+├── agents.py
+├── main.py
+├── simulator.py
+├── config/
+│   └── default_config.json
+├── examples/
+│   ├── custom_sensor.py
+│   ├── custom_pattern.py
+│   └── custom_agent.py
+└── tests/
+    ├── __init__.py
+    ├── test_core.py
+    ├── test_sensors.py
+    ├── test_knowledge.py
+    └── test_agents.py
+
